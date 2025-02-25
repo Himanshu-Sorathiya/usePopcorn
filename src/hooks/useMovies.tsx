@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import type { MovieList } from '../components/App';
 
 const KEY = '9898cffd';
@@ -29,7 +30,7 @@ export function useMovies(query: string, handleCloseMovie?: () => void) {
 					setError('');
 
 					const res = await fetch(
-						`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+						`https://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
 						{ signal: controller.signal }
 					);
 					if (!res.ok) throw new Error('Something went wrong with fetching movies');

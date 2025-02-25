@@ -1,10 +1,11 @@
-import { useState, useRef, useEffect } from 'react';
-
-import { WatchedMovie, KEY } from './App';
-import { Loader } from './utilities/Loader';
+import { useEffect, useRef, useState } from 'react';
 
 import { useKey } from '../hooks/useKey';
+
+import { Loader } from './utilities/Loader';
 import { StarRating } from './utilities/StarRating';
+
+import { KEY, WatchedMovie } from './App';
 
 export function MovieDetails({
 	selectedId,
@@ -80,7 +81,7 @@ export function MovieDetails({
 					setIsLoading(true);
 
 					const res = await fetch(
-						`http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
+						`https://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
 					);
 					if (!res.ok) throw new Error('Something went wrong with fetching movies');
 
